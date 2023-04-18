@@ -89,9 +89,10 @@ def count_tf_idf_indo(texts):
         data.append( (term, sums[0,col] ))
 
     ranking = pd.DataFrame(data, columns=['term','rank'])
-    ranking.to_csv('rankindonesia.csv',index=True)
     print('Ranking term pada Dokumen TF-IDF Bahasa Indonesia : ')
-    print(ranking.sort_values('rank', ascending=False))
+    ranked = ranking.sort_values('rank', ascending=False)
+    print(ranked)
+    ranked.to_csv('rankindonesia.csv')
 
     print('Dokumen TF-IDF Bahasa Indonesia : ')
     return df_transposed_indo
@@ -115,9 +116,10 @@ def count_tf_idf_inggris(texts):
         data.append( (term, sums[0,col] ))
 
     ranking = pd.DataFrame(data, columns=['term','rank'])
-    ranking.to_csv('rankinggris.csv',index=True)
     print('Ranking term pada Dokumen TF-IDF Bahasa Inggris : ')
-    print(ranking.sort_values('rank', ascending=False))
+    ranked = ranking.sort_values('rank', ascending=False)
+    print(ranked)
+    ranked.to_csv('rankinggris.csv')
 
     print('Dokumen TF-IDF Bahasa Inggris : ')
     return df_transposed
